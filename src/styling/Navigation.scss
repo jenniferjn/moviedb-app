@@ -2,30 +2,85 @@
   display: inline-flex;
   justify-content: start;
 
-  .menu-link {
+  .menu-toggle {
     position: relative;
-  }
+    border: 0;
+    background-color: transparent!important;
+    color: gray!important;
+    padding: 0 1rem!important;
+    
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 120%;
+      width: max-content;
+      padding: 0.5rem;
+      background-color: gray;
+      border-radius: 0 0.5rem 0.5rem 0.5rem;
+      transform-origin: top center;
+      animation: growDown 0.3s ease-out;
   
-  .menu-link:hover {
-    text-shadow: 0 0 0.02rem black;
+      .menu-link {
+        padding: 0.25rem 1rem!important;
+        color: white;
+      }
+    }
+
+    &.active {
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 100%;
+        border-right: 15px solid transparent;
+        border-bottom: 10px solid gray;
+      }
+
+      .menu-dropdown {
+        display: block;
+      }
+    }
   }
 
-  .menu-link:after {
-    content: '';
-    position: absolute;
-    width: 70%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 5%;
-    left: 15%;
-    background-color: gray;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  @keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+  }
+
+  .menu-link {
+    position: relative;
+    padding: 1.5rem;
   }
   
-  .menu-link:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  @media screen and (min-width: 992px) {
+    .menu-link:hover {
+      text-shadow: 0 0 0.05rem gray;
+    }
+
+    .menu-link:after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 3px;
+      bottom: 3%;
+      left: 15%;
+      border-radius: 3rem;
+      background-color: gray;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    
+    .menu-link:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
   }
 }
 
@@ -56,11 +111,15 @@
   }
 
   &.shown {
-    border: 0.05rem solid gray;
+    border: 0.05rem solid black;
 
     .search-bar {
       opacity: 100%;
       width: 100%;
+    }
+    
+    .search-bar:focus {
+      box-shadow: none;
     }
   }
 }
