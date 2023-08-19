@@ -1,0 +1,95 @@
+.background {
+  background-color: #27374D;
+  
+  .trending {
+    background-color: #27374D;
+    padding: 2rem 0rem;
+  
+    .title {
+      color: #DDE6ED;
+      margin-bottom: 1rem;
+    }
+  
+    .trending-movie-list {
+      overflow-x: hidden;
+      flex-wrap: nowrap;
+      padding-top: 1rem;
+
+      .trending-movie-item {
+        position: relative;
+        border: 0;
+        margin-bottom: 0.75rem;
+
+        .trending-movie-image {
+          height: 15rem;
+          object-fit: cover;
+          cursor: pointer;
+        }
+
+        .play-button {
+          position: absolute;
+          width: 5rem;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #526D82;
+          fill-opacity: 50%;
+          cursor: pointer;
+          opacity: 0%;
+        }
+      }
+
+      .trending-movie-item:hover {
+        box-shadow: 0.2rem 0.2rem 1rem black;
+        transform: translateY(-0.25rem);
+        transition: transform 0.3s ease-out;
+
+        .play-button {
+          opacity: 100%;
+          transition: opacity 0.3s ease-out;
+        }
+      }
+      
+      .rating-icon {
+        width: 1rem;
+        margin-right: 0.5rem;
+        color: #DDE6ED;
+        opacity: 70%;
+      }
+
+      .trending-movie-rating {
+        color: #DDE6ED;
+        opacity: 70%;
+        font-weight: 500!important;
+      }
+      .trending-movie-title {
+        color: #DDE6ED;
+        font-weight: 600!important;
+      }
+    }
+
+    .trending-movie-list:hover {
+      overflow-x: auto;
+    }
+  }
+}
+
+div.trending-movie-list::-webkit-scrollbar {
+  position: absolute;
+  height: 0.4rem;
+  z-index: 1000;
+}
+
+div.trending-movie-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+div.trending-movie-list::-webkit-scrollbar-thumb {
+  background: #9DB2BF;
+  opacity: 50%;
+  border-radius: 1rem;
+}
+
+div.trending-movie-list::-webkit-scrollbar-thumb:hover {
+  background: #9DB2BF; 
+}

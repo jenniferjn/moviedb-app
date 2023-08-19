@@ -20,12 +20,12 @@
       .movie-title {
         font-weight: bolder;
         font-size: 4rem;
-        color: white;
+        color: #DDE6ED;
         text-shadow: 0.2rem 0.2rem 0.5rem black;
       }
 
       .movie-description {
-        color: white;
+        color: #DDE6ED;
         text-shadow: 0.2rem 0.2rem 0.5rem black;
       }
     }
@@ -47,7 +47,7 @@
 .movie-list::after {
   content: '';
   position: absolute;
-  background-image: linear-gradient(transparent, black);
+  background-image: linear-gradient(transparent, #27374D);
   z-index: 1000;
   bottom: 0rem;
   left: 0;
