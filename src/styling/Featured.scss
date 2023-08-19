@@ -1,0 +1,56 @@
+.movie-list {
+  height: 85vh;
+  background-color: black;
+
+  .movie-item {
+    .movie-image {
+      width: 100%;
+      height: 85vh;
+      object-fit: cover;
+      opacity: 50%;
+    }
+
+    .movie-caption {
+      position: absolute;
+      z-index: 1020;
+      top: 35%;
+      left: 8%;
+      width: 40%;
+
+      .movie-title {
+        font-weight: bolder;
+        font-size: 4rem;
+        color: white;
+        text-shadow: 0.2rem 0.2rem 0.5rem black;
+      }
+
+      .movie-description {
+        color: white;
+        text-shadow: 0.2rem 0.2rem 0.5rem black;
+      }
+    }
+  }
+
+  button {
+    width: 0.75rem!important;
+    height: 0.75rem!important;
+    border-radius: 50%;
+    margin: 0rem 1rem!important;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
+}
+
+.movie-list::after {
+  content: '';
+  position: absolute;
+  background-image: linear-gradient(transparent, black);
+  z-index: 1000;
+  bottom: 0rem;
+  left: 0;
+  width: 100%;
+  height: 10%;
+}

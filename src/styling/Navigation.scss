@@ -1,3 +1,13 @@
+.navigation {
+  padding: 0rem 1rem!important;
+  position: absolute!important;
+  background-image: linear-gradient(black, transparent);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1020;
+}
+
 .menu {
   display: inline-flex;
   justify-content: start;
@@ -68,7 +78,7 @@
       position: absolute;
       width: 70%;
       height: 3px;
-      bottom: 3%;
+      bottom: 1rem;
       left: 15%;
       border-radius: 3rem;
       background-color: gray;
@@ -93,6 +103,7 @@
   border: 0.05rem solid transparent;
   border-radius: 10rem;
   transition: border 0.2s ease-out;
+  color:  rgb(255, 255, 255, 0.55);
 
   .search-icon {
     width: 1.5rem;
@@ -107,11 +118,12 @@
     width: 0%;
     display: inline-block;
     border: 0;
+    background-color: transparent;
     transition: 0.4s ease-out;
   }
 
   &.shown {
-    border: 0.05rem solid black;
+    border: 0.05rem solid  rgb(255, 255, 255, 0.55);  
 
     .search-bar {
       opacity: 100%;
@@ -122,4 +134,9 @@
       box-shadow: none;
     }
   }
+}
+
+.login {
+  text-align: start;
+  color: rgb(255, 255, 255, 0.55);
 }
