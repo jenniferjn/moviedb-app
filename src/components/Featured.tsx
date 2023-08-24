@@ -18,7 +18,7 @@ function Featured() {
             </span>
             <br />
             <span className="movie-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus perspiciatis dolorem minus neque fugit deserunt voluptatem corrupti! Cupiditate, itaque!
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus.
             </span>
           </div>
         </Carousel.Item>
@@ -32,7 +32,7 @@ function Featured() {
               </span>
               <br />
               <span className="movie-description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus perspiciatis dolorem minus neque fugit deserunt voluptatem corrupti! Cupiditate, itaque!
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus.
               </span>
             </div>
           </div>
@@ -46,7 +46,7 @@ function Featured() {
             </span>
             <br />
             <span className="movie-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus perspiciatis dolorem minus neque fugit deserunt voluptatem corrupti! Cupiditate, itaque!
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam repudiandae aut ipsa quae, illo eos soluta aliquam possimus asperiores voluptatibus.
             </span>
           </div>
         </Carousel.Item>

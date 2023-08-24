@@ -20,7 +20,9 @@ function Trending() {
         </h2>
         <div>
           <Row className="trending-movie-list"> 
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Barbie}
                           className="trending-movie-image" />
@@ -59,7 +61,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Oppenheimer}
                           className="trending-movie-image" />
@@ -98,7 +102,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Gotg}
                           className="trending-movie-image" />
@@ -137,7 +143,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Re}
                           className="trending-movie-image" />
@@ -176,7 +184,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Tmnt}
                           className="trending-movie-image" />
@@ -215,7 +225,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={HauntedMansion}
                           className="trending-movie-image" />
@@ -252,7 +264,9 @@ function Trending() {
                 </h5>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={12}
+                 md={4}
+                 xl={2}>
               <Card className="trending-movie-item">
                 <Card.Img src={Demeter}
                           className="trending-movie-image" />

@@ -1,0 +1,111 @@
+.background {
+  background-color: #27374D;
+
+  .coming-soon {
+    background-color: #27374D;
+    padding: 2rem 0rem;
+
+    .title {
+      color: #DDE6ED;
+      margin-bottom: 1rem;
+    }
+
+    .movie-trailer {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      .movie-trailer-video {
+        width: 840px;
+        height: 473px;
+        max-width: 90%;
+        max-height: min-content;
+      }
+    }
+
+    .upcoming-movie-swiper {
+      padding: 2rem 3rem;
+      
+      .upcoming-movie-item {
+        position: relative;
+        cursor: pointer;
+        transform: translateY(0.25rem);
+        transition: transform 0.3s ease-out;
+
+        .upcoming-movie-img {
+          width: 100%;
+          height: 10rem;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+
+        .upcoming-movie-detail {
+          background-color: black;
+          opacity: 90%;
+          position: absolute;
+          top: 0%;
+          left: 0;
+          border-radius: 1rem;
+          width: 100%;
+          height: 100%;
+          display: none;
+          animation: fadeInAnimation ease 0.3s;
+          
+          .upcoming-movie-text {
+            position: relative;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-shadow: 0.2rem 0.2rem 1rem black;
+          }
+        }
+      }
+
+      .upcoming-movie-item:hover {
+        transform: translateY(-0.25rem);
+        transition: transform 0.3s ease-out;
+
+        .upcoming-movie-img {
+          box-shadow: 0.2rem 0.2rem 1rem black;
+        }
+
+        .upcoming-movie-detail {
+          display: block;
+        }
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 1.5rem;
+        color: #DDE6ED;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .background {
+    .coming-soon {
+      max-width: 90%;
+
+      .upcoming-movie-swiper {
+        .upcoming-movie-item {
+          .upcoming-movie-img {
+            height: 7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 0.9;
+   }
+}

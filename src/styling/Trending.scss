@@ -19,9 +19,12 @@
         position: relative;
         border: 0;
         margin-bottom: 0.75rem;
+        transform: translateY(0.25rem);
+        transition: transform 0.3s ease-out;
 
         .trending-movie-image {
           height: 15rem;
+          width: auto;
           object-fit: cover;
           cursor: pointer;
         }
@@ -68,19 +71,20 @@
       }
     }
 
-    .trending-movie-list:hover {
+    .trending-movie-list:hover,
+    .trending-movie-list:active {
       overflow-x: auto;
     }
   }
 }
 
 div.trending-movie-list::-webkit-scrollbar {
-  position: absolute;
   height: 0.4rem;
   z-index: 1000;
 }
 
 div.trending-movie-list::-webkit-scrollbar-track {
+  position: absolute;
   background: transparent;
 }
 
@@ -92,4 +96,20 @@ div.trending-movie-list::-webkit-scrollbar-thumb {
 
 div.trending-movie-list::-webkit-scrollbar-thumb:hover {
   background: #9DB2BF; 
+}
+
+@media screen and (max-width: 576px) {
+  .background {
+    .trending {
+      max-width: 90%;
+  
+      .trending-movie-list {
+        .trending-movie-item {
+          .trending-movie-image {
+            height: 20rem;
+          }
+        } 
+      }
+    }
+  }
 }
