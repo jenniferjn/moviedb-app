@@ -18,8 +18,6 @@
       .movie-trailer-video {
         width: 840px;
         height: 473px;
-        max-width: 90%;
-        max-height: min-content;
       }
     }
 
@@ -85,10 +83,43 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
+  .background {
+    .coming-soon {
+      .movie-trailer {
+        .movie-trailer-video {
+          width: 539px;
+          height: 302px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .background {
+    .coming-soon {
+      .movie-trailer {
+        .movie-trailer-video {
+          width: 646px;
+          height: 364px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
   .background {
     .coming-soon {
       max-width: 90%;
+
+      .movie-trailer {
+        .movie-trailer-video {
+          width: 294px;
+          height: 165px;
+        }
+      }
 
       .upcoming-movie-swiper {
         .upcoming-movie-item {
