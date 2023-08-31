@@ -25,7 +25,7 @@ const films = [
     "code": "Oppenheimer",
     "title": "Oppenheimer",
     "image": Oppenheimer,
-    "image_popup": "https://images.perthnow.com.au/publication/C-11291658/def7e555fe2a53b1c0d10611717a15955f282d5a-16x9-x0y288w12008h6755.jpg",
+    "image_popup": "https://www.koimoi.com/wp-content/new-galleries/2022/07/oppenheimer-first-poster-highlights-devastation-caused-by-atomic-bomb-0001.jpg",
     "description": "Barbie is a 2023 American fantasy comedy film directed by Greta Gerwig from a screenplay she wrote with Noah Baumbach. Based on the Barbie fashion dolls by Mattel, it is the first live-action Barbie film after numerous computer-animated films and specials. The film follows Barbie (Margot Robbie) and Ken (Ryan Gosling) on a journey of self-discovery following an existential crisis.",
     "rate": "4.2"
   },

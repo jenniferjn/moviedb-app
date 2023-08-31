@@ -1,5 +1,4 @@
 import { Button, Image, Modal } from "react-bootstrap";
-import { useState } from "react";
 
 import "../styling/PopUp.scss";
 

@@ -2,11 +2,16 @@
   padding: 0rem 1rem!important;
   position: absolute!important;
   background-image: linear-gradient(black, transparent);
-  opacity: 80%;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1020;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem!important;
 }
 
 .menu {
@@ -55,6 +60,12 @@
     }
   }
 
+  .menu-link {
+    position: relative;
+    padding: 1.5rem;
+    font-weight: 500;
+  }
+
   @keyframes growDown {
     0% {
         transform: scaleY(0)
@@ -62,11 +73,6 @@
     100% {
         transform: scaleY(1)
     }
-  }
-
-  .menu-link {
-    position: relative;
-    padding: 1.5rem;
   }
   
   @media screen and (min-width: 992px) {
@@ -138,6 +144,11 @@
 }
 
 .login {
-  text-align: start;
   color: rgb(255, 255, 255, 0.55);
+  text-wrap: nowrap;
+
+  .button-login {
+    background-color: #960019!important;
+    border-color: #960019!important;
+  }
 }
