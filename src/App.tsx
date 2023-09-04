@@ -10,7 +10,7 @@ function App() {
       <Navigation></Navigation>
       <Featured></Featured>
       <Trending></Trending>
-      <ComingSoon></ComingSoon>
+      {/* <ComingSoon></ComingSoon> */}
     </>
   );
 }

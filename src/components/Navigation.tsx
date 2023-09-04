@@ -1,7 +1,7 @@
 import { Button, Col, Container, Form, Nav, Navbar, Row } from "react-bootstrap";
-import "../styling/Navigation.scss";
-
 import { useEffect, useState } from "react";
+
+import "../styling/Navigation.scss";
 
 function Navigation() {
   const [viewWindow, setViewWindow] = useState(window.innerWidth);
@@ -105,7 +105,7 @@ function Navigation() {
                 lg={2}
                 className="text-center">
               <Navbar.Brand className="brand">
-                MovieDB
+                Moviease
               </Navbar.Brand>
             </Col>
 

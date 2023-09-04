@@ -1,4 +1,4 @@
-import { Container, Card, Col, Row } from "react-bootstrap";
+import { Button, Container, Card, Col, Row } from "react-bootstrap";
 import PopUp from "./PopUp";
 import { useState } from "react";
 
@@ -73,6 +73,8 @@ const films = [
 
 function Trending() {
 
+  const [filter, setFilter] = useState("today");
+
   const [isPopup, setIsPopup] = useState(false);
 
   const openPopup = (data: any) => {
@@ -89,35 +91,36 @@ function Trending() {
   return (
     <div className="background">
       <Container className="trending">
-        <h2 className="title">
-          Trending
-        </h2>
+        <div className="heading d-flex justify-content-between align-items-center">
+          <h2 className="title">
+            Trending
+          </h2>
+          <h6 className="pe-2">
+            View All &gt;
+          </h6>
+        </div>
+        <hr style={{ backgroundColor: "#960019", height: "0.2rem", opacity: "1" }} />
         <div>
+          <Button className={`filter-button me-3 px-4 py-2 ${filter === "today" ? "active" : ""}`}
+                  onClick={() => setFilter("today")}>
+            Today
+          </Button>
+          <Button className={`filter-button me-3 px-4 py-2 ${filter === "week" ? "active" : ""}`}
+                  onClick={() => setFilter("week")}>
+            This Week
+          </Button>
           <Row className="trending-movie-list">
             { 
               films.map((film) => {
                 return (
                   <Col xs={12}
-                        md={4}
-                        xl={2}
-                        key={film.code}>
+                       md={4}
+                       xl={2}
+                       key={film.code}>
                     <Card className="trending-movie-item"
                           onClick={() => openPopup(film)}>
                       <Card.Img src={film.image}
                                 className="trending-movie-image" />
-                      <svg xmlns="http://www.w3.org/2000/svg"
-                            fill="white"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1"
-                            stroke="currentColor"
-                            className="play-button w-6 h-6">
-                        <path strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        <path strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
-                      </svg>
                     </Card>
                     <div>
                       <div className="d-flex align-items-center">
@@ -135,9 +138,9 @@ function Trending() {
                           {film.rate}/5
                         </span>
                       </div>
-                      <h5 className="trending-movie-title">
+                      <h6 className="trending-movie-title">
                         {film.title}
-                      </h5>
+                      </h6>
                     </div>
                   </Col>
                 )

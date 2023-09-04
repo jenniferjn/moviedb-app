@@ -148,7 +148,19 @@
   text-wrap: nowrap;
 
   .button-login {
-    background-color: #960019!important;
-    border-color: #960019!important;
+    background-color: #960019;
+    border: none;
+
+    &:hover {
+      background-color: #560714;
+    }
+
+    &:active {
+      background-color: #40030d!important;
+    }
+
+    &:focus-visible {
+      box-shadow: none;
+    }
   }
 }
