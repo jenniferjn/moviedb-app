@@ -10,7 +10,7 @@
   border-radius: 0 0 3rem 3rem;
   box-shadow: black 0.25rem 0rem 1rem;
   position: relative;
-  
+
   .movie-image {
     position: relative;
     width: 100%;
@@ -58,8 +58,12 @@
   .play-button:hover {
     background-color: #560714;
   }
-  
-  .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+
+  .btn-check:checked + .btn,
+  .btn.active,
+  .btn.show,
+  .btn:first-child:active,
+  :not(.btn-check) + .btn:active {
     background-color: #40030d;
   }
 
@@ -72,13 +76,12 @@
     list-style: none;
     color: white;
 
-    >li {
+    > li {
       cursor: pointer;
       width: 4rem;
-      height: 1.5rem;
+      height: 3rem;
       border-radius: 50%;
       margin: 0 0.25rem;
-      height: 3rem;
       display: flex;
       align-self: baseline;
       font-size: 2rem;
@@ -120,12 +123,12 @@
     .movie-title {
       font-weight: bolder;
       font-size: 4rem;
-      color: #DDE6ED;
+      color: #dde6ed;
       text-shadow: 0.2rem 0.2rem 0.5rem black;
     }
 
     .movie-description {
-      color: #DDE6ED;
+      color: #dde6ed;
       text-shadow: 0.2rem 0.2rem 0.5rem black;
     }
   }
@@ -143,7 +146,7 @@
         top: 50%;
         left: 8%;
         width: 85%;
-    
+
         .movie-title {
           font-size: 2rem;
         }

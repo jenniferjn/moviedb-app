@@ -1,6 +1,6 @@
 .navigation {
-  padding: 0rem 1rem!important;
-  position: absolute!important;
+  padding: 0rem 1rem !important;
+  position: absolute !important;
   background-image: linear-gradient(black, transparent);
   width: 100%;
   top: 0;
@@ -11,7 +11,7 @@
 
 .brand {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem!important;
+  font-size: 2rem !important;
 }
 
 .menu {
@@ -21,10 +21,10 @@
   .menu-toggle {
     position: relative;
     border: 0;
-    background-color: transparent!important;
-    color: gray!important;
-    padding: 0 1rem!important;
-    
+    background-color: transparent !important;
+    color: gray !important;
+    padding: 0 1rem !important;
+
     .menu-dropdown {
       display: none;
       position: absolute;
@@ -35,9 +35,9 @@
       border-radius: 0 0.5rem 0.5rem 0.5rem;
       transform-origin: top center;
       animation: growDown 0.3s ease-out;
-  
+
       .menu-link {
-        padding: 0.25rem 1rem!important;
+        padding: 0.25rem 1rem !important;
         color: white;
       }
     }
@@ -68,13 +68,13 @@
 
   @keyframes growDown {
     0% {
-        transform: scaleY(0)
+      transform: scaleY(0);
     }
     100% {
-        transform: scaleY(1)
+      transform: scaleY(1);
     }
   }
-  
+
   @media screen and (min-width: 992px) {
     .menu-link:hover {
       text-shadow: 0 0 0.05rem gray;
@@ -93,7 +93,7 @@
       transform-origin: bottom right;
       transition: transform 0.25s ease-out;
     }
-    
+
     .menu-link:hover:after {
       transform: scaleX(1);
       transform-origin: bottom left;
@@ -110,7 +110,7 @@
   border: 0.05rem solid transparent;
   border-radius: 10rem;
   transition: border 0.2s ease-out;
-  color:  rgb(255, 255, 255, 0.55);
+  color: rgb(255, 255, 255, 0.55);
 
   .search-icon {
     width: 1.5rem;
@@ -130,13 +130,13 @@
   }
 
   &.shown {
-    border: 0.05rem solid  rgb(255, 255, 255, 0.55);  
+    border: 0.05rem solid rgb(255, 255, 255, 0.55);
 
     .search-bar {
       opacity: 100%;
       width: 100%;
     }
-    
+
     .search-bar:focus {
       box-shadow: none;
     }
@@ -156,7 +156,7 @@
     }
 
     &:active {
-      background-color: #40030d!important;
+      background-color: #40030d !important;
     }
 
     &:focus-visible {

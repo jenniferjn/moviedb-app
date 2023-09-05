@@ -1,6 +1,6 @@
 .background {
   background-color: #1f1f1f;
-  
+
   .trending {
     background-color: #1f1f1f;
     padding: 2rem 0rem;
@@ -9,12 +9,12 @@
     .heading {
       color: white;
       margin-bottom: 1rem;
-      
-      >.title {
+
+      > .title {
         margin-bottom: 1rem;
       }
-      
-      >h6 {
+
+      > h6 {
         cursor: pointer;
       }
     }
@@ -35,26 +35,26 @@
         box-shadow: none;
       }
     }
-  
+
     .trending-movie-list {
       padding-top: 1rem;
 
       &::-webkit-scrollbar {
         height: 0.4rem;
       }
-      
+
       &::-webkit-scrollbar-track {
         position: absolute;
         background-color: transparent;
       }
-      
+
       &::-webkit-scrollbar-thumb {
         background-color: rgba(150, 0, 25, 0);
         border-radius: 1rem;
       }
-      
+
       &::-webkit-scrollbar-thumb:hover {
-        background: #9DB2BF; 
+        background: #9db2bf;
       }
 
       .trending-movie-item {
@@ -80,22 +80,22 @@
         transform: translateY(-0.25rem);
         transition: transform 0.3s ease-out;
       }
-      
+
       .rating-icon {
         width: 1rem;
         margin-right: 0.5rem;
-        color: #F9E076;
+        color: #f9e076;
       }
 
       .trending-movie-rating {
-        color: #DDE6ED;
+        color: #dde6ed;
         opacity: 70%;
-        font-weight: 300!important;
+        font-weight: 300 !important;
       }
-      
+
       .trending-movie-title {
         color: white;
-        font-weight: 600!important;
+        font-weight: 600 !important;
       }
     }
 
@@ -112,13 +112,13 @@
   .background {
     .trending {
       max-width: 90%;
-  
+
       .trending-movie-list {
         .trending-movie-item {
           .trending-movie-image {
             height: 20rem;
           }
-        } 
+        }
       }
     }
   }
