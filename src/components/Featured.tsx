@@ -53,7 +53,7 @@ function Featured() {
 
   useEffect(() => {
     setMovie(movies[order - 1]);
-  }, [movies, order]);
+  }, [order]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -63,7 +63,7 @@ function Featured() {
     return () => {
       clearInterval(interval);
     };
-  });
+  }, [order]);
 
   return (
     <>
