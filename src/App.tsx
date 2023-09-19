@@ -1,14 +1,24 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
-import Featured from './components/Featured';
+import Details from './components/Details';
 import Navigation from './components/Navigation';
-import Trending from './components/Trending';
+import Home from './components/Home';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: 'movie/:id',
+      element: <Details />,
+    },
+  ]);
   return (
     <>
       <Navigation></Navigation>
-      <Featured></Featured>
-      <Trending></Trending>
+      <RouterProvider router={router} />
     </>
   );
 }

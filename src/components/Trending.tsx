@@ -1,5 +1,4 @@
 import { Button, Container, Card, Col, Row } from 'react-bootstrap';
-import PopUp from './PopUp';
 import { useEffect, useState } from 'react';
 
 import '../styling/Trending.scss';
@@ -7,9 +6,10 @@ import '../styling/Trending.scss';
 import { getTrendingMovie } from '../services/movies.service';
 import { PopularMoviesOutput, transformPopularMovies } from '../models/popular-movies.models';
 import { PopularMovieTypes } from '../moviease-enum';
+import { useNavigate } from 'react-router-dom';
 
 function Trending() {
-  const [filter, setFilter] = useState(PopularMovieTypes.Day);
+  const [filter, setFilter] = useState<PopularMovieTypes>(PopularMovieTypes.Day);
 
   const [films, setFilms] = useState<PopularMoviesOutput[]>([]);
 
@@ -19,25 +19,19 @@ function Trending() {
     });
   }, [filter]);
 
-  const [isPopup, setIsPopup] = useState(false);
+  const [shownFilms, setShownFilms] = useState<PopularMoviesOutput[]>([]);
 
-  const openPopup = (data: any) => {
-    setSelectedData(data);
-    setIsPopup(true);
-  };
+  useEffect(() => {
+    setShownFilms(films.slice(0, 12));
+  }, [films]);
 
-  const closePopup = () => {
-    setIsPopup(false);
-  };
-
-  const [selectedData, setSelectedData] = useState(undefined);
+  const navigate = useNavigate();
 
   return (
     <div className="background">
       <Container className="trending">
         <div className="heading d-flex justify-content-between align-items-center">
           <h2 className="title">Trending</h2>
-          <h6 className="pe-2">View All &gt;</h6>
         </div>
         <hr style={{ backgroundColor: '#960019', height: '0.2rem', opacity: '1' }} />
         <div>
@@ -58,7 +52,7 @@ function Trending() {
             This Week
           </Button>
           <Row className="trending-movie-list">
-            {films.map((film) => {
+            {shownFilms.map((film) => {
               return (
                 <Col
                   xs={12}
@@ -68,7 +62,7 @@ function Trending() {
                 >
                   <Card
                     className="trending-movie-item"
-                    onClick={() => openPopup(film)}
+                    onClick={() => navigate(`/movie/${film.id}`)}
                   >
                     <Card.Img
                       src={`https://image.tmdb.org/t/p/w500${film.poster}`}
@@ -99,11 +93,6 @@ function Trending() {
               );
             })}
           </Row>
-          <PopUp
-            show={isPopup}
-            onClose={closePopup}
-            data={selectedData}
-          />
         </div>
       </Container>
     </div>
