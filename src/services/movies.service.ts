@@ -2,6 +2,7 @@ import axios from 'axios';
 import { PopularMoviesResponse } from '../schema/popular-movies.schema';
 import { MovieDetailResponse } from '../schema/movie-detail.schema';
 import { MovieTrailerResponse } from '../schema/movie-trailer.schema';
+import { SearchResultResponse } from '../schema/search-result.schema';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -29,6 +30,12 @@ export async function getMovieTrailer(id: string): Promise<MovieTrailerResponse>
   return movies.data;
 }
 
-export function searchMovies() {
-  const movies = axios.get('');
+export async function searchMovies(keyword: string): Promise<SearchResultResponse> {
+  const movies = await axiosInstance.get(`/search/multi`, {
+    params: {
+      query: keyword
+    }
+  })
+
+  return movies.data;
 }

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 
 import '../styling/Navigation.scss';
 
+import { useNavigate } from 'react-router-dom';
+
 function Navigation() {
   const [viewWindow, setViewWindow] = useState(window.innerWidth);
 
@@ -69,7 +71,12 @@ function Navigation() {
   function showMenu() {
     return (
       <>
-        <Nav.Link className="menu-link">Home</Nav.Link>
+        <Nav.Link
+          className="menu-link"
+          onClick={() => (window.location.href = '/')}
+        >
+          Home
+        </Nav.Link>
         <Nav.Link className="menu-link">Movies</Nav.Link>
         <Nav.Link className="menu-link">TV Shows</Nav.Link>
         <Nav.Link className="menu-link">News</Nav.Link>
@@ -84,6 +91,18 @@ function Navigation() {
       setSearchClass('search');
     } else {
       setSearchClass('search shown');
+    }
+  }
+
+  const navigate = useNavigate();
+
+  function handleSearchInput(event: any) {
+    const keyword = event.target.value;
+
+    if (keyword !== '') {
+      navigate(`/search?keyword=${keyword}`);
+    } else {
+      navigate('/');
     }
   }
 
@@ -151,6 +170,7 @@ function Navigation() {
                 <Form.Control
                   placeholder="Search for movies..."
                   className="search-bar"
+                  onChange={(e) => handleSearchInput(e)}
                 />
               </div>
             </Col>
