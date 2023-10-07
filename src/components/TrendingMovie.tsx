@@ -66,7 +66,7 @@ function TrendingMovie() {
               {shownFilms.map((film) => {
                 return (
                   <Col
-                    xs={12}
+                    xs={6}
                     md={4}
                     xl={2}
                     key={film.id}

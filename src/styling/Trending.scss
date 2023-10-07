@@ -41,7 +41,6 @@
         transform: translateY(0.25rem);
         transition: transform 0.3s ease-out;
         border-radius: 0;
-        height: 15rem;
 
         .trending-image {
           height: inherit;
@@ -86,17 +85,9 @@
 }
 
 @media screen and (max-width: 576px) {
-  .background {
+  .trending-background {
     .trending {
       max-width: 90%;
-
-      .trending-list {
-        .trending-item {
-          .trending-image {
-            height: 20rem;
-          }
-        }
-      }
     }
   }
 }

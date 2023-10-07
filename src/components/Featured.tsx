@@ -88,10 +88,10 @@ function Featured() {
           />
           <Container className="movie-detail">
             <div className="movie-component">
-              <div>
+              <div className="movie-logo-container mb-3 mb-md-4">
                 <Image
                   src={movie.logo}
-                  className="movie-logo mb-4"
+                  className="movie-logo"
                   alt="Movie Logo"
                 />
               </div>
@@ -99,9 +99,10 @@ function Featured() {
                 <Col
                   xs={12}
                   md={4}
+                  className="pb-3 pb-md-0"
                 >
                   <Button
-                    className="play-button d-flex align-items-center px-4 py-2 ms-2 w-100"
+                    className="play-button d-flex align-items-center px-4 py-2 ms-0 ms-md-2 w-100"
                     onClick={() => navigate(`/detail/movie/${movie.id}`)}
                   >
                     <svg
@@ -123,7 +124,7 @@ function Featured() {
                   xs={12}
                   md={5}
                 >
-                  <Button className="play-button d-flex align-items-center px-4 py-2 ms-2 w-100">
+                  <Button className="play-button d-flex align-items-center px-4 py-2 ms-0 ms-md-2 w-100">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -141,72 +142,74 @@ function Featured() {
                 </Col>
               </Row>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="arrow-icon arrow-icon-left w-6 h-6"
-              onClick={() => {
-                order === 1 ? setOrder(5) : setOrder(order - 1);
-              }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              />
-            </svg>
-            <ol className="d-flex p-0 movie-order">
-              <li
-                className={order === 1 ? 'active' : ''}
-                onClick={() => setOrder(1)}
+            <div className="d-none d-md-block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="arrow-icon arrow-icon-left w-6 h-6"
+                onClick={() => {
+                  order === 1 ? setOrder(5) : setOrder(order - 1);
+                }}
               >
-                01
-              </li>
-              <li
-                className={order === 2 ? 'active' : ''}
-                onClick={() => setOrder(2)}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                />
+              </svg>
+              <ol className="d-flex p-0 movie-order">
+                <li
+                  className={order === 1 ? 'active' : ''}
+                  onClick={() => setOrder(1)}
+                >
+                  01
+                </li>
+                <li
+                  className={order === 2 ? 'active' : ''}
+                  onClick={() => setOrder(2)}
+                >
+                  02
+                </li>
+                <li
+                  className={order === 3 ? 'active' : ''}
+                  onClick={() => setOrder(3)}
+                >
+                  03
+                </li>
+                <li
+                  className={order === 4 ? 'active' : ''}
+                  onClick={() => setOrder(4)}
+                >
+                  04
+                </li>
+                <li
+                  className={order === 5 ? 'active' : ''}
+                  onClick={() => setOrder(5)}
+                >
+                  05
+                </li>
+              </ol>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="arrow-icon arrow-icon-right w-6 h-6"
+                onClick={() => {
+                  order === 5 ? setOrder(1) : setOrder(order + 1);
+                }}
               >
-                02
-              </li>
-              <li
-                className={order === 3 ? 'active' : ''}
-                onClick={() => setOrder(3)}
-              >
-                03
-              </li>
-              <li
-                className={order === 4 ? 'active' : ''}
-                onClick={() => setOrder(4)}
-              >
-                04
-              </li>
-              <li
-                className={order === 5 ? 'active' : ''}
-                onClick={() => setOrder(5)}
-              >
-                05
-              </li>
-            </ol>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="arrow-icon arrow-icon-right w-6 h-6"
-              onClick={() => {
-                order === 5 ? setOrder(1) : setOrder(order + 1);
-              }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </div>
           </Container>
         </div>
       </Container>

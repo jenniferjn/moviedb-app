@@ -127,19 +127,31 @@ function Navigation() {
               lg={4}
             >
               <Nav className="menu">
-                {viewWindow < 991 ? (
+                {viewWindow < 576 ? (
                   <>
-                    <div
-                      id="menu-toggle"
-                      className={menuClass}
-                      onClick={() => handleMenuToggle()}
-                    >
-                      Menu
-                      <div className="menu-dropdown">{showMenu()}</div>
+                    <div className="nav-icon">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                     </div>
                   </>
                 ) : (
-                  showMenu()
+                  <>
+                    {viewWindow < 991 ? (
+                      <>
+                        <div
+                          id="menu-toggle"
+                          className={menuClass}
+                          onClick={() => handleMenuToggle()}
+                        >
+                          Menu
+                          <div className="menu-dropdown">{showMenu()}</div>
+                        </div>
+                      </>
+                    ) : (
+                      showMenu()
+                    )}
+                  </>
                 )}
               </Nav>
             </Col>
@@ -147,6 +159,7 @@ function Navigation() {
             <Col
               xs={5}
               lg={4}
+              className="d-none d-md-block"
             >
               <div
                 id="search"
@@ -178,7 +191,7 @@ function Navigation() {
             <Col
               xs={2}
               lg={2}
-              className="login text-center"
+              className="d-none d-md-block login text-center"
             >
               <Button className="button-login px-4 py-1">Log In</Button>
             </Col>
