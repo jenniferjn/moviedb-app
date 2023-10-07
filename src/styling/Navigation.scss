@@ -9,6 +9,61 @@
   font-family: 'Work Sans', sans-serif;
 }
 
+.nav-row {
+  width: 100% !important;
+}
+
+.nav-icon {
+  width: 2.5rem;
+  height: 2rem;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100 !important;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 0.35rem;
+    width: 2.5rem;
+    background: #960019;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    transform-origin: left center;
+  }
+
+  span:nth-child(1) {
+    top: 0rem;
+  }
+
+  span:nth-child(2) {
+    top: 0.75rem;
+  }
+
+  span:nth-child(3) {
+    top: 1.5rem;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      top: 1.75rem;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
 .brand {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem !important;
@@ -163,5 +218,15 @@
     &:focus-visible {
       box-shadow: none;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nav-row {
+    width: 100vh !important;
+  }
+
+  .menu {
+    justify-content: end;
   }
 }

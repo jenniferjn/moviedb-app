@@ -68,12 +68,12 @@ function DetailMovie({ movie }: { movie: MovieDetailOutput }) {
           </Row>
         </Container>
       </div>
-      <Container className="p-4">
+      {/* <Container className="p-4">
         <div className="heading d-flex justify-content-between align-items-center">
           <h2 className="title">Cast</h2>
         </div>
         <hr style={{ backgroundColor: '#960019', height: '0.2rem', opacity: '1' }} />
-      </Container>
+      </Container> */}
     </>
   );
 }

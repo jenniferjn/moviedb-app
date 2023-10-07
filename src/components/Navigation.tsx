@@ -73,7 +73,7 @@ function Navigation() {
       <>
         <Nav.Link
           className="menu-link"
-          onClick={() => (window.location.href = '/')}
+          onClick={() => navigate('/')}
         >
           Home
         </Nav.Link>
@@ -82,6 +82,16 @@ function Navigation() {
         <Nav.Link className="menu-link">News</Nav.Link>
       </>
     );
+  }
+
+  const [menuState, setMenuState] = useState('');
+
+  function handleMenuState() {
+    if (menuState !== 'open') {
+      setMenuState('open');
+    } else {
+      setMenuState('');
+    }
   }
 
   const [searchClass, setSearchClass] = useState('search');
@@ -113,23 +123,33 @@ function Navigation() {
         data-bs-theme="dark"
       >
         <Container>
-          <Row className="w-100 align-items-center mt-3">
+          <Row className="nav-row align-items-center mt-3">
             <Col
-              xs={3}
-              lg={2}
+              xs={6}
+              md={2}
               className="text-center"
             >
-              <Navbar.Brand className="brand">Moviease</Navbar.Brand>
+              <Navbar.Brand
+                className="brand"
+                onClick={() => navigate('/')}
+              >
+                Moviease
+              </Navbar.Brand>
             </Col>
 
             <Col
-              xs={2}
+              xs={6}
+              md={2}
               lg={4}
+              className="d-flex d-md-block justify-content-end"
             >
               <Nav className="menu">
                 {viewWindow < 576 ? (
                   <>
-                    <div className="nav-icon">
+                    <div
+                      className={'nav-icon ' + menuState}
+                      onClick={() => handleMenuState()}
+                    >
                       <span></span>
                       <span></span>
                       <span></span>
@@ -158,6 +178,7 @@ function Navigation() {
 
             <Col
               xs={5}
+              md={6}
               lg={4}
               className="d-none d-md-block"
             >
