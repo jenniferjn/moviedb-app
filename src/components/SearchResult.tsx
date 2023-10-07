@@ -34,7 +34,7 @@ function SearchResult() {
       setIsLoading(false);
       setResult(transformSearchResult(result));
     });
-  }, []);
+  }, [keyword]);
 
   return (
     <div className="background">
@@ -65,7 +65,7 @@ function SearchResult() {
                     <Col xs={2}>
                       <Card
                         className="search-item"
-                        onClick={() => navigate(`/${result.type}/${result.id}`)}
+                        onClick={() => navigate(`/detail/${result.type}/${result.id}`)}
                       >
                         <Card.Img
                           src={`https://image.tmdb.org/t/p/w500${result.poster}`}

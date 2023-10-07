@@ -13,6 +13,7 @@ import Minions from '../assets/minions.jpg';
 import MinionsLogo from '../assets/minions_logo.png';
 import Madagascar from '../assets/madagascar.jpg';
 import MadagascarLogo from '../assets/madagascar_logo.png';
+import { useNavigate } from 'react-router-dom';
 
 function Featured() {
   const movies = [
@@ -21,30 +22,35 @@ function Featured() {
       title: 'Elemental',
       image: Elemental,
       logo: ElementalLogo,
+      id: 976573,
     },
     {
       order: '2',
       title: 'Zootopia',
       image: Zootopia,
       logo: ZootopiaLogo,
+      id: 269149,
     },
     {
       order: '3',
       title: 'Coco',
       image: Coco,
       logo: CocoLogo,
+      id: 354912,
     },
     {
       order: '4',
       title: 'Minions',
       image: Minions,
       logo: MinionsLogo,
+      id: 211672,
     },
     {
       order: '5',
       title: 'Madagascar',
       image: Madagascar,
       logo: MadagascarLogo,
+      id: 953,
     },
   ];
 
@@ -65,6 +71,8 @@ function Featured() {
       clearInterval(interval);
     };
   }, [order]);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -92,7 +100,10 @@ function Featured() {
                   xs={12}
                   md={4}
                 >
-                  <Button className="play-button d-flex align-items-center px-4 py-2 ms-2 w-100">
+                  <Button
+                    className="play-button d-flex align-items-center px-4 py-2 ms-2 w-100"
+                    onClick={() => navigate(`/detail/movie/${movie.id}`)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
