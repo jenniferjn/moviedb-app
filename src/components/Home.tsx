@@ -1,11 +1,13 @@
 import Featured from './Featured';
-import Trending from './Trending';
+import TrendingMovie from './TrendingMovie';
+import TrendingTVShow from './TrendingTVShow';
 
 function Home() {
   return (
     <>
       <Featured></Featured>
-      <Trending></Trending>
+      <TrendingMovie></TrendingMovie>
+      <TrendingTVShow></TrendingTVShow>
     </>
   );
 }
