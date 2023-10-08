@@ -11,15 +11,22 @@ function DetailTVShow({ tvShow }: { tvShow: TvShowDetailOutput }) {
       <div className="d-flex align-items-center justify-content-center">
         <Container className="movie-detail">
           <Row className="align-items-center justify-content-center">
-            <Col className="col-3">
-              <Card className="movie-poster border-0">
+            <Col
+              xs={12}
+              md={3}
+              className="d-flex justify-content-center"
+            >
+              <Card className="movie-poster border-0 m-4 m-md-0">
                 <Card.Img
                   src={`https://image.tmdb.org/t/p/w500${tvShow.poster}`}
                   alt="Detail Poster"
                 />
               </Card>
             </Col>
-            <Col xs={7}>
+            <Col
+              xs={12}
+              md={7}
+            >
               <div className="movie-info">
                 <h1 className="movie-title">{tvShow.title}</h1>
                 <p>

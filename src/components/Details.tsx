@@ -15,8 +15,6 @@ function Details() {
   const { type } = useParams();
   const detailType = type ?? '';
 
-  console.log(detailType);
-
   const { id } = useParams();
   const itemId = id ?? '';
 

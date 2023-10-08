@@ -1,4 +1,4 @@
-import { SearchResultResponse } from "../schema/search-result.schema";
+import { SearchResultResponse } from '../schema/search-result.schema';
 
 export interface SearchResultOutput {
   page: number;
@@ -27,21 +27,21 @@ export function transformSearchResult(response: SearchResultResponse): SearchRes
         return {
           id: result.id,
           type: result.media_type,
-          title: result.title,
+          title: result.title || result.name,
           poster: result.poster_path,
-          rate: result.vote_average
-        }
+          rate: result.vote_average,
+        };
       } else {
         return {
           id: 0,
           type: '',
           title: '',
           poster: '',
-          rate: 0
-        }
+          rate: 0,
+        };
       }
-    })
-  }
+    }),
+  };
 
   return output;
 }

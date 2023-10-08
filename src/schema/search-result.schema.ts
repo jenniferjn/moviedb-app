@@ -14,6 +14,7 @@ interface Result {
   overview: string;
   poster_path: string;
   media_type: string;
+  name: string;
   genre_ids: number[];
   popularity: number;
   release_date: string;

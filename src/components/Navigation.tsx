@@ -78,7 +78,7 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
           onClick={() => {
             navigate('/');
 
-            if (viewWindow <= 576) {
+            if (viewWindow < 768) {
               handleMenuState();
             }
           }}
@@ -151,7 +151,7 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
   function handleSearchInput(event: any) {
     const keyword = event.target.value;
 
-    if (viewWindow > 576) {
+    if (viewWindow >= 768) {
       if (keyword !== '') {
         navigate(`/search?keyword=${keyword}`);
       } else {
@@ -191,11 +191,18 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
             <Col
               xs={6}
               md={2}
-              className="text-center"
+              className="text-md-center"
             >
               <Navbar.Brand
                 className="brand"
-                onClick={() => navigate('/')}
+                onClick={() => {
+                  navigate('/');
+
+                  if (viewWindow < 768) {
+                    setMenuState('');
+                    isOpened(false);
+                  }
+                }}
               >
                 Moviease
               </Navbar.Brand>
@@ -208,7 +215,7 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
               className="d-flex d-md-block justify-content-end"
             >
               <Nav className="menu">
-                {viewWindow <= 576 ? (
+                {viewWindow < 768 ? (
                   <>
                     <div
                       className={'nav-icon ' + menuState}

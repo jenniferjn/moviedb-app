@@ -45,10 +45,14 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 767px) {
   .background {
     > .search-result {
       max-width: 90%;
+
+      .search-item {
+        height: 25rem;
+      }
     }
   }
 }

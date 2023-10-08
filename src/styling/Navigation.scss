@@ -221,9 +221,9 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 767px) {
   .nav-row {
-    width: 100vh !important;
+    width: 100vw !important;
   }
 
   .menu {

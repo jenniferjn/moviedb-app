@@ -62,7 +62,11 @@ function SearchResult() {
                   {result.id === 0 ? (
                     <></>
                   ) : (
-                    <Col xs={2}>
+                    <Col
+                      xs={6}
+                      md={3}
+                      lg={2}
+                    >
                       <Card
                         className="search-item"
                         onClick={() => navigate(`/detail/${result.type}/${result.id}`)}
