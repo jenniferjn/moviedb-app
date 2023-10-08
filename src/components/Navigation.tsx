@@ -77,7 +77,10 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
           className="menu-link"
           onClick={() => {
             navigate('/');
-            handleMenuState();
+
+            if (viewWindow <= 576) {
+              handleMenuState();
+            }
           }}
         >
           Home
