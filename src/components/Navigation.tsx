@@ -5,7 +5,7 @@ import '../styling/Navigation.scss';
 
 import { useNavigate } from 'react-router-dom';
 
-function Navigation() {
+function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
   const [viewWindow, setViewWindow] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -17,6 +17,8 @@ function Navigation() {
       setViewWindow(window.innerWidth);
     });
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener('click', (event: MouseEvent) => {
@@ -73,7 +75,10 @@ function Navigation() {
       <>
         <Nav.Link
           className="menu-link"
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/');
+            handleMenuState();
+          }}
         >
           Home
         </Nav.Link>
@@ -89,12 +94,48 @@ function Navigation() {
   function handleMenuState() {
     if (menuState !== 'open') {
       setMenuState('open');
+      isOpened(true);
     } else {
       setMenuState('');
+      isOpened(false);
     }
   }
 
   const [searchClass, setSearchClass] = useState('search');
+
+  const [keyword, setKeyword] = useState('');
+
+  function showSearchBar() {
+    return (
+      <>
+        <div
+          id="search"
+          className={searchClass}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="search-icon w-6 h-6"
+            onClick={() => handleSearchBar()}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+          <Form.Control
+            placeholder="Search for movies..."
+            className="search-bar"
+            onChange={(e) => handleSearchInput(e)}
+          />
+        </div>
+      </>
+    );
+  }
 
   function handleSearchBar() {
     if (searchClass.includes('shown')) {
@@ -104,16 +145,36 @@ function Navigation() {
     }
   }
 
-  const navigate = useNavigate();
-
   function handleSearchInput(event: any) {
     const keyword = event.target.value;
 
+    if (viewWindow > 576) {
+      if (keyword !== '') {
+        navigate(`/search?keyword=${keyword}`);
+      } else {
+        navigate('/');
+      }
+    } else {
+      setKeyword(keyword);
+    }
+  }
+
+  function handleSearchInputResp() {
     if (keyword !== '') {
       navigate(`/search?keyword=${keyword}`);
+      handleMenuState();
     } else {
       navigate('/');
+      handleMenuState();
     }
+  }
+
+  function showButtonLogIn() {
+    return (
+      <>
+        <Button className="button-login px-4 py-1">Log In</Button>
+      </>
+    );
   }
 
   return (
@@ -144,7 +205,7 @@ function Navigation() {
               className="d-flex d-md-block justify-content-end"
             >
               <Nav className="menu">
-                {viewWindow < 576 ? (
+                {viewWindow <= 576 ? (
                   <>
                     <div
                       className={'nav-icon ' + menuState}
@@ -182,31 +243,7 @@ function Navigation() {
               lg={4}
               className="d-none d-md-block"
             >
-              <div
-                id="search"
-                className={searchClass}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="search-icon w-6 h-6"
-                  onClick={() => handleSearchBar()}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-                <Form.Control
-                  placeholder="Search for movies..."
-                  className="search-bar"
-                  onChange={(e) => handleSearchInput(e)}
-                />
-              </div>
+              {showSearchBar()}
             </Col>
 
             <Col
@@ -214,11 +251,24 @@ function Navigation() {
               lg={2}
               className="d-none d-md-block login text-center"
             >
-              <Button className="button-login px-4 py-1">Log In</Button>
+              {showButtonLogIn()}
             </Col>
           </Row>
         </Container>
       </Navbar>
+      <div className={'d-md-none nav-menu ' + menuState}>
+        <div className="nav-menu-dropdown">
+          {showMenu()}
+          {showButtonLogIn()}
+          {showSearchBar()}
+          <Button
+            className="button-search px-4 py-1"
+            onClick={() => handleSearchInputResp()}
+          >
+            Search
+          </Button>
+        </div>
+      </div>
     </>
   );
 }

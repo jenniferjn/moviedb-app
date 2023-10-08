@@ -229,4 +229,78 @@
   .menu {
     justify-content: end;
   }
+
+  .nav-menu {
+    background-color: #960019;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+
+    &.open {
+      display: flex;
+    }
+
+    .nav-menu-dropdown {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      justify-content: center;
+      align-items: center;
+
+      > a {
+        padding: 1rem;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .button-login,
+      .button-search {
+        margin: 1rem auto;
+        border: none;
+        background-color: white;
+        color: #960019;
+
+        &:hover {
+          background-color: white;
+          color: #960019;
+        }
+
+        &:active {
+          background-color: #40030d !important;
+        }
+
+        &:focus-visible {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .search {
+    border: 0.05rem solid rgb(255, 255, 255, 0.55);
+    margin: 1rem auto;
+
+    .search-bar {
+      opacity: 100%;
+      width: 100%;
+      color: rgb(255, 255, 255, 0.55);
+
+      &::placeholder {
+        color: rgb(255, 255, 255, 0.55);
+      }
+
+      &:focus {
+        color: rgb(255, 255, 255, 0.55);
+      }
+    }
+
+    .search-bar:focus {
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
 }

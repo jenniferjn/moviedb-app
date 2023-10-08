@@ -7,12 +7,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css/bundle';
 import { BrowserRouter } from 'react-router-dom';
 
+function handleIsOpened(value: boolean) {
+  if (value) {
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100vh';
+  } else {
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+  }
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <App isOpened={handleIsOpened} />
     </React.StrictMode>
   </BrowserRouter>,
 );
