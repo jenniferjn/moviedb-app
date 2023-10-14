@@ -14,6 +14,9 @@ import MinionsLogo from '../assets/minions_logo.png';
 import Madagascar from '../assets/madagascar.jpg';
 import MadagascarLogo from '../assets/madagascar_logo.png';
 import { useNavigate } from 'react-router-dom';
+import PopUp from './PopUp';
+import { getMovieTrailer } from '../services/movies.service';
+import { MovieTrailerOutput, transformMovieTrailer } from '../models/movie-trailer.model';
 
 function Featured() {
   const movies = [
@@ -74,6 +77,33 @@ function Featured() {
 
   const navigate = useNavigate();
 
+  const [isShowTrailer, setIsShowTrailer] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState({
+    order: '',
+    title: '',
+    image: '',
+    logo: '',
+    id: 0,
+  });
+
+  const [selectedTrailer, setSelectedTrailer] = useState<MovieTrailerOutput>({ trailerId: '' });
+
+  function handleTrailer(selectedMovie?: {
+    order: string;
+    title: string;
+    image: string;
+    logo: string;
+    id: number;
+  }) {
+    if (selectedMovie) {
+      getMovieTrailer(selectedMovie?.id).then((result) =>
+        setSelectedTrailer(transformMovieTrailer(result)),
+      );
+    }
+    setSelectedMovie(selectedMovie ?? { order: '', title: '', image: '', logo: '', id: 0 });
+    setIsShowTrailer(!isShowTrailer);
+  }
+
   return (
     <>
       <Container
@@ -124,7 +154,10 @@ function Featured() {
                   xs={12}
                   md={5}
                 >
-                  <Button className="play-button d-flex align-items-center px-4 py-2 ms-0 ms-md-2 w-100">
+                  <Button
+                    className="play-button d-flex align-items-center px-4 py-2 ms-0 ms-md-2 w-100"
+                    onClick={() => handleTrailer(movie)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -213,6 +246,17 @@ function Featured() {
           </Container>
         </div>
       </Container>
+      {isShowTrailer ? (
+        <>
+          <PopUp
+            movie={selectedMovie}
+            url={selectedTrailer.trailerId}
+            onClose={handleTrailer}
+          ></PopUp>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 }

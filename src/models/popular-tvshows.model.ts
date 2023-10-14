@@ -1,11 +1,7 @@
 import { PopularTVShowsResponse } from '../schema/popular-tvshows.schema';
+import { SectionItem } from './shared/section-item.model';
 
-export interface PopularTVShowsOutput {
-  id: number;
-  title: string;
-  poster: string;
-  rate: number;
-}
+export interface PopularTVShowsOutput extends SectionItem {}
 
 export function transformPopularTVShows(
   response: PopularTVShowsResponse[],

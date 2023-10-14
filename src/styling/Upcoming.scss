@@ -1,7 +1,7 @@
-.trending-background {
+.upcoming-background {
   background-color: #1f1f1f;
 
-  .trending {
+  .upcoming {
     background-color: #1f1f1f;
     padding: 2rem 0rem;
     font-family: 'Work Sans', sans-serif;
@@ -35,8 +35,8 @@
 }
 
 @media screen and (max-width: 767px) {
-  .trending-background {
-    .trending {
+  .upcoming-background {
+    .upcoming {
       max-width: 90%;
     }
   }

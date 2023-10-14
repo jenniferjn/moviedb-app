@@ -1,35 +1,47 @@
-import { Button, Image, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 import '../styling/PopUp.scss';
+import { useEffect, useState } from 'react';
 
-function PopUp({ show, onClose, data }: { show: boolean; onClose: () => void; data: any }) {
+function PopUp({
+  movie,
+  url,
+  onClose,
+}: {
+  movie: { order: string; title: string; image: string; logo: string; id: number };
+  url: string;
+  onClose: () => void;
+}) {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => setShow(true), []);
+
   return (
     <>
       <Modal
+        className="modal-xl"
         show={show}
-        onHide={onClose}
+        onHide={() => {
+          setShow(false);
+          onClose();
+        }}
         centered
       >
         <Modal.Header
-          className="popup-header border-0 p-0"
+          className="p-3 pb-2"
           closeButton
         >
-          <Image
-            src={data?.image_popup}
-            className="popup-image"
-          />
+          <h4 className="trailer-title fw-bolder p-2 m-0">{movie.title} Trailer</h4>
         </Modal.Header>
         <Modal.Body>
-          {data?.title}
-          <br />
-          <br />
-          {data?.description}
-          <Button
-            className="btn-see-more m-0 border-0 p-2 mt-3"
-            onClick={onClose}
-          >
-            See More
-          </Button>
+          <iframe
+            width="1120"
+            height="730"
+            src={`https://www.youtube.com/embed/${url}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </Modal.Body>
       </Modal>
     </>

@@ -1,11 +1,7 @@
 import { PopularMoviesResponse } from '../schema/popular-movies.schema';
+import { SectionItem } from './shared/section-item.model';
 
-export interface PopularMoviesOutput {
-  id: number;
-  title: string;
-  poster: string;
-  rate: number;
-}
+export interface PopularMoviesOutput extends SectionItem {}
 
 export function transformPopularMovies(response: PopularMoviesResponse[]): PopularMoviesOutput[] {
   let output: PopularMoviesOutput[];

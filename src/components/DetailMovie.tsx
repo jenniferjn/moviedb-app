@@ -80,8 +80,6 @@ function DetailMovie({ movie }: { movie: MovieDetailOutput }) {
     setPosterHeight(posterRef.current?.offsetHeight || 0);
     setBackgroundHeight(backgroundRef.current?.offsetHeight || 0);
 
-    console.log(posterHeight + ' ' + backgroundHeight);
-
     if (backgroundHeight < posterHeight + 56) {
       setDetailMargin(posterHeight + 56 - backgroundHeight);
     }
@@ -127,10 +125,10 @@ function DetailMovie({ movie }: { movie: MovieDetailOutput }) {
         style={{ marginTop: detailMargin }}
       >
         {viewWindow < 768 ? <>{showDetailMovie()}</> : <></>}
-        <div className="heading d-flex justify-content-between align-items-center">
+        {/* <div className="heading d-flex justify-content-between align-items-center">
           <h2 className="title">Cast</h2>
         </div>
-        <hr style={{ backgroundColor: '#960019', height: '0.2rem', opacity: '1' }} />
+        <hr style={{ backgroundColor: '#960019', height: '0.2rem', opacity: '1' }} /> */}
       </Container>
     </>
   );

@@ -85,7 +85,18 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
         >
           Home
         </Nav.Link>
-        <Nav.Link className="menu-link">Movies</Nav.Link>
+        <Nav.Link
+          className="menu-link"
+          onClick={() => {
+            navigate('/movies');
+
+            if (viewWindow < 768) {
+              handleMenuState();
+            }
+          }}
+        >
+          Movies
+        </Nav.Link>
         <Nav.Link className="menu-link">TV Shows</Nav.Link>
         <Nav.Link className="menu-link">News</Nav.Link>
       </>

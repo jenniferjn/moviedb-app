@@ -5,7 +5,8 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import SearchResult from './components/SearchResult';
 import Footer from './components/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import MoviePage from './components/MoviePage';
 
 function App({ isOpened }: { isOpened(value: boolean): void }) {
   useEffect(() => {
@@ -29,9 +30,13 @@ function App({ isOpened }: { isOpened(value: boolean): void }) {
           element={<Details />}
         />
         <Route
-          path="search"
+          path="/search"
           element={<SearchResult />}
         />
+        <Route
+          path="/movies"
+          element={<MoviePage />}
+        ></Route>
       </Routes>
       <Footer></Footer>
     </>

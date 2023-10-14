@@ -5,6 +5,7 @@ import { MovieTrailerResponse } from '../schema/movie-trailer.schema';
 import { SearchResultResponse } from '../schema/search-result.schema';
 import { PopularTVShowsResponse } from '../schema/popular-tvshows.schema';
 import { TvShowDetailResponse } from '../schema/tvshow-detail.schema';
+import { UpcomingMoviesResponse } from '../schema/upcoming-movies.schema';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -38,14 +39,20 @@ export async function getDetailTvShow(id: string): Promise<TvShowDetailResponse>
   return tvshow.data;
 }
 
-export async function getMovieTrailer(id: string): Promise<MovieTrailerResponse> {
+export async function getMovieTrailer(id: number): Promise<MovieTrailerResponse> {
   const movies = await axiosInstance.get(`/movie/${id}/videos`);
 
   return movies.data;
 }
 
+export async function getUpcomingMovie(): Promise<UpcomingMoviesResponse> {
+  const movies = await axiosInstance.get('/movie/upcoming');
+
+  return movies.data;
+}
+
 export async function searchMovies(keyword: string): Promise<SearchResultResponse> {
-  const movies = await axiosInstance.get(`/search/multi`, {
+  const movies = await axiosInstance.get('/search/multi', {
     params: {
       query: keyword,
     },
