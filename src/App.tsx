@@ -7,8 +7,9 @@ import SearchResult from './components/SearchResult';
 import Footer from './components/Footer';
 import { useEffect } from 'react';
 import MoviePage from './components/MoviePage';
+import TVShowPage from './components/TVShowPage';
 
-function App({ isOpened }: { isOpened(value: boolean): void }) {
+function App({ isOpened }: Readonly<{ isOpened(value: boolean): void }>) {
   useEffect(() => {
     isOpened(false);
   }, []);
@@ -36,6 +37,10 @@ function App({ isOpened }: { isOpened(value: boolean): void }) {
         <Route
           path="/movies"
           element={<MoviePage />}
+        ></Route>
+        <Route
+          path="/tvshows"
+          element={<TVShowPage />}
         ></Route>
       </Routes>
       <Footer></Footer>

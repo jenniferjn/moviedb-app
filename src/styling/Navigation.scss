@@ -67,6 +67,7 @@
 .brand {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem !important;
+  cursor: pointer;
 }
 
 .menu {
@@ -294,13 +295,10 @@
       }
 
       &:focus {
+        box-shadow: none;
+        background-color: transparent;
         color: rgb(255, 255, 255, 0.55);
       }
-    }
-
-    .search-bar:focus {
-      box-shadow: none;
-      background-color: transparent;
     }
   }
 }

@@ -5,7 +5,7 @@ import '../styling/Navigation.scss';
 
 import { useNavigate } from 'react-router-dom';
 
-function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
+function Navigation({ isOpened }: Readonly<{ isOpened(value: boolean): void }>) {
   const [viewWindow, setViewWindow] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -97,7 +97,18 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
         >
           Movies
         </Nav.Link>
-        <Nav.Link className="menu-link">TV Shows</Nav.Link>
+        <Nav.Link
+          className="menu-link"
+          onClick={() => {
+            navigate('/tvshows');
+
+            if (viewWindow < 768) {
+              handleMenuState();
+            }
+          }}
+        >
+          TV Shows
+        </Nav.Link>
         <Nav.Link className="menu-link">News</Nav.Link>
       </>
     );
@@ -121,33 +132,31 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
 
   function showSearchBar() {
     return (
-      <>
-        <div
-          id="search"
-          className={searchClass}
+      <div
+        id="search"
+        className={searchClass}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="search-icon w-6 h-6"
+          onClick={() => handleSearchBar()}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="search-icon w-6 h-6"
-            onClick={() => handleSearchBar()}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
-          </svg>
-          <Form.Control
-            placeholder="Search for movies..."
-            className="search-bar"
-            onChange={(e) => handleSearchInput(e)}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
           />
-        </div>
-      </>
+        </svg>
+        <Form.Control
+          placeholder="Search for movies..."
+          className="search-bar"
+          onChange={(e) => handleSearchInput(e)}
+        />
+      </div>
     );
   }
 
@@ -184,11 +193,7 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
   }
 
   function showButtonLogIn() {
-    return (
-      <>
-        <Button className="button-login px-4 py-1">Log In</Button>
-      </>
-    );
+    return <Button className="button-login px-4 py-1">Log In</Button>;
   }
 
   return (
@@ -227,29 +232,25 @@ function Navigation({ isOpened }: { isOpened(value: boolean): void }) {
             >
               <Nav className="menu">
                 {viewWindow < 768 ? (
-                  <>
-                    <div
-                      className={'nav-icon ' + menuState}
-                      onClick={() => handleMenuState()}
-                    >
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </>
+                  <div
+                    className={'nav-icon ' + menuState}
+                    onClick={() => handleMenuState()}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 ) : (
                   <>
                     {viewWindow < 991 ? (
-                      <>
-                        <div
-                          id="menu-toggle"
-                          className={menuClass}
-                          onClick={() => handleMenuToggle()}
-                        >
-                          Menu
-                          <div className="menu-dropdown">{showMenu()}</div>
-                        </div>
-                      </>
+                      <div
+                        id="menu-toggle"
+                        className={menuClass}
+                        onClick={() => handleMenuToggle()}
+                      >
+                        Menu
+                        <div className="menu-dropdown">{showMenu()}</div>
+                      </div>
                     ) : (
                       showMenu()
                     )}

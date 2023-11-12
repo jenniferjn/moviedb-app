@@ -6,6 +6,7 @@ import { SearchResultResponse } from '../schema/search-result.schema';
 import { PopularTVShowsResponse } from '../schema/popular-tvshows.schema';
 import { TvShowDetailResponse } from '../schema/tvshow-detail.schema';
 import { UpcomingMoviesResponse } from '../schema/upcoming-movies.schema';
+import { TodayTvShowsResponse } from '../schema/today-tvshows.schema';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -49,6 +50,12 @@ export async function getUpcomingMovie(): Promise<UpcomingMoviesResponse> {
   const movies = await axiosInstance.get('/movie/upcoming');
 
   return movies.data;
+}
+
+export async function getTodayTvShow(): Promise<TodayTvShowsResponse> {
+  const tvshow = await axiosInstance.get('/tv/airing_today');
+
+  return tvshow.data;
 }
 
 export async function searchMovies(keyword: string): Promise<SearchResultResponse> {

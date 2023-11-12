@@ -1,4 +1,4 @@
-import { Button, Container, Card, Col, Row } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
 import '../styling/Trending.scss';
@@ -6,7 +6,6 @@ import '../styling/Trending.scss';
 import { getTrendingMovie } from '../services/movies.service';
 import { PopularMoviesOutput, transformPopularMovies } from '../models/popular-movies.models';
 import { PopularMovieTypes } from '../moviease-enum';
-import { useNavigate } from 'react-router-dom';
 import { SpinningCircles } from 'react-loading-icons';
 import Section from './shared/Section';
 
@@ -55,11 +54,9 @@ function TrendingMovie() {
             This Week
           </Button>
           {isLoading ? (
-            <>
-              <div className="d-flex align-items-center justify-content-center p-4">
-                <SpinningCircles />
-              </div>
-            </>
+            <div className="d-flex align-items-center justify-content-center p-4">
+              <SpinningCircles />
+            </div>
           ) : (
             <Section
               items={shownFilms}
